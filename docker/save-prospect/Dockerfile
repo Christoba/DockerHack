@@ -7,4 +7,4 @@ RUN Set-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Par
 WORKDIR /save-prospect-handler
 COPY SaveProspectHandler .
 
-CMD .\ProductLaunch.MessageHandlers.SaveProspect.exe
+CMD .\kCura.Hack.Client.exe

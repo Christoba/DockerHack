@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="MessageHelper.cs" />
     <Compile Include="MessageQueue.cs" />
-    <Compile Include="Messages\Events\ProspectSignedUpEvent.cs" />
+    <Compile Include="Messages\Events\CustodianCreatedEvent.cs" />
     <Compile Include="Messages\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

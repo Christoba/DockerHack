@@ -54,11 +54,11 @@ namespace kCura.Hack.Logging
             "Microsoft.Design",
             "CA1031:DoNotCatchGeneralExceptionTypes",
             Justification = "Do not allow an exception constructing a log service to break the application.")]
-        public static ILogService CreateLogService()
+        public static ILogService CreateLogService(string appName)
         {
             try
             {
-                Log.Logger = CreateLogger();
+                Log.Logger = CreateLogger(appName);
                 var logService = new SerilogLogService(Log.Logger);
                 return logService;
             }
@@ -100,9 +100,9 @@ namespace kCura.Hack.Logging
         /// <returns>
         /// The <see cref="ILogger"/>.
         /// </returns>
-        public static ILogger CreateLogger()
+        public static ILogger CreateLogger(string appName)
         {
-            var loggerConfiguration = CreateSerilogLoggerConfiguration();
+            var loggerConfiguration = CreateSerilogLoggerConfiguration(appName);
 
             return loggerConfiguration.CreateLogger();
         }
@@ -113,11 +113,11 @@ namespace kCura.Hack.Logging
         /// <returns>
         /// The <see cref="LoggerConfiguration"/>.
         /// </returns>
-        public static LoggerConfiguration CreateSerilogLoggerConfiguration()
+        public static LoggerConfiguration CreateSerilogLoggerConfiguration(string appName)
         {
 
-            var loggerConfiguration =
-                new LoggerConfiguration().MinimumLevel.Debug();
+            var loggerConfiguration = new LoggerConfiguration().MinimumLevel.Debug()
+                .Enrich.WithProperty("App", appName);
 
             loggerConfiguration.WriteTo.Seq(SeqEndpoint);
 

@@ -1,7 +1,7 @@
 ﻿using ProductLaunch.Entities;
 using ProductLaunch.Messaging;
 using ProductLaunch.Messaging.Messages.Events;
-using ProductLaunch.Model;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,45 +10,17 @@ using System.Web.UI.WebControls;
 
 namespace ProductLaunch.Web
 {
-    using kCura.Hack.Logging;
-
-    public partial class SignUp : Page
+    public partial class CreateCustodian : Page
     {
         private static Dictionary<string, Country> _Countries;
-        private static Dictionary<string, Role> _Roles;
-
-        private static ILogService logService = null;
-
-        private static ILogService LogService
-        {
-            get
-            {
-                if (logService == null)
-                {
-                    logService = LogServiceFactory.CreateLogService();
-                }
-
-                return logService;
-            }
-        }
+        private static Dictionary<string, CustodianType> _Types;
 
         public static void PreloadStaticDataCache()
         {
-            LogService.LogInfo("Preloading data cache.");
+            WebHelper.LogService.LogInfo("Preloading data cache.");
 
             _Countries = new Dictionary<string, Country>();
-            _Roles = new Dictionary<string, Role>();
-            ////using (var context = new ProductLaunchContext())
-            ////{
-            ////    foreach (var country in context.Countries.OrderBy(x => x.CountryName))
-            ////    {
-            ////        _Countries[country.CountryCode] = country;
-            ////    }
-            ////    foreach (var role in context.Roles.OrderBy(x => x.RoleName))
-            ////    {
-            ////        _Roles[role.RoleCode] = role;
-            ////    }
-            ////}
+            _Types = new Dictionary<string, CustodianType>();
 
             _Countries = new Dictionary<string, Country>()
                              {
@@ -59,14 +31,34 @@ namespace ProductLaunch.Web
                                              CountryCode = "US",
                                              CountryName = "United States"
                                          }
-                                 }
+                                 },
+                                 {
+                                     "Canada",
+                                     new Country()
+                                         {
+                                             CountryCode = "CA",
+                                             CountryName = "Canada"
+                                         }
+                                 },
+                                 {
+                                     "Mexico",
+                                     new Country()
+                                         {
+                                             CountryCode = "MX",
+                                             CountryName = "Mexico"
+                                         }
+                                }
                              };
 
-            _Roles = new Dictionary<string, Role>()
+            _Types = new Dictionary<string, CustodianType>()
                          {
                              {
-                                 "Developer",
-                                 new Role() { RoleCode = "Dev", RoleName = "Developer" }
+                                 "Person",
+                                 new CustodianType() { TypeCode = "P", TypeName = "Person" }
+                             },
+                             {
+                                 "Entity",
+                                 new CustodianType() { TypeCode = "E", TypeName = "Entity" }
                              }
                          };
         }
@@ -82,8 +74,8 @@ namespace ProductLaunch.Web
 
         private void PopulateRoles()
         {
-            ddlRole.Items.Clear();
-            ddlRole.Items.AddRange(_Roles.Select(x => new ListItem(x.Value.RoleName, x.Key)).ToArray()); 
+            ddlCustType.Items.Clear();
+            ddlCustType.Items.AddRange(_Types.Select(x => new ListItem(x.Value.TypeName, x.Key)).ToArray()); 
         }
 
         private void PopulateCountries()
@@ -95,32 +87,32 @@ namespace ProductLaunch.Web
         protected void btnGo_Click(object sender, EventArgs e)
         {
             var country = _Countries[ddlCountry.SelectedValue];
-            var role = _Roles[ddlRole.SelectedValue];
+            var custType = _Types[ddlCustType.SelectedValue];
 
-            var prospect = new Prospect
+            var prospect = new Custodian
             {
                 CompanyName = txtCompanyName.Text,
                 EmailAddress = txtEmail.Text,
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,
                 Country = country,
-                Role = role
+                CustodianType = custType
             };
 
             this.SavePublish(prospect);
 
-            Server.Transfer("ThankYou.aspx");
+            Server.Transfer("Success.aspx");
         }
 
-        private void SavePublish(Prospect prospect)
+        private void SavePublish(Custodian custodian)
         {
-            var eventMessage = new ProspectSignedUpEvent
+            var eventMessage = new CustodianCreatedEvent
                                    {
-                                       Prospect = prospect,
-                                       SignedUpAt = DateTime.UtcNow
+                                       Custodian = custodian,
+                                       CreatedAt = DateTime.Now
                                    };
 
-            LogService.LogInfo("Publishing new prospect {0}", prospect);
+            WebHelper.LogService.LogInfo("Publishing new custodian {0} at {1}", eventMessage.Custodian, eventMessage.CreatedAt);
 
             MessageQueue.Publish(eventMessage);
         }

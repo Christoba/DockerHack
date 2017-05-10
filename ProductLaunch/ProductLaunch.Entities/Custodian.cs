@@ -2,7 +2,7 @@
 {
     using System.Globalization;
 
-    public class Prospect
+    public class Custodian
     {
         public int ProspectId { get; set; }
         
@@ -14,7 +14,7 @@
 
         public string EmailAddress { get; set; }
 
-        public Role Role { get; set; }
+        public CustodianType CustodianType { get; set; }
 
         public Country Country { get; set; }
 

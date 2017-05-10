@@ -31,10 +31,10 @@ namespace ProductLaunch.Model.Initializers
 
         private void AddRole(ProductLaunchContext context, string code, string name)
         {
-            context.Roles.Add(new Role
+            context.Roles.Add(new CustodianType
             {
-                RoleCode = code,
-                RoleName = name
+                TypeCode = code,
+                TypeName = name
             });
         }
     }

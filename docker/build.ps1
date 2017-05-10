@@ -9,7 +9,7 @@ rm -r -force .\web\ProductLaunchWeb
 cp -r ..\ProductLaunch\ProductLaunch.Web .\web\ProductLaunchWeb
 
 # publish message handlers:
-& $msBuildPath ..\ProductLaunch\ProductLaunch.MessageHandlers.SaveProspect\ProductLaunch.MessageHandlers.SaveProspect.csproj /p:OutputPath=..\..\docker\save-prospect\SaveProspectHandler
+& $msBuildPath ..\ProductLaunch\ProductLaunch.MessageHandlers.SaveProspect\kCura.Hack.Client.csproj /p:OutputPath=..\..\docker\save-prospect\SaveProspectHandler
 
 # build images:
 docker build -t sixeyed/msdn-web-app:v2 .\web

@@ -1,50 +1,57 @@
-﻿using NATS.Client;
-using ProductLaunch.Messaging;
-using ProductLaunch.Messaging.Messages.Events;
-using ProductLaunch.Model;
-using System;
-using System.Linq;
-using System.Threading;
+﻿
 
-namespace ProductLaunch.MessageHandlers.SaveProspect
+namespace kCura.Hack.Client
 {
+    using System;
+    using System.Threading;
+
+    using NATS.Client;
+    using ProductLaunch.Messaging;
+    using ProductLaunch.Messaging.Messages.Events;
+
     class Program
     {
         private static ManualResetEvent _ResetEvent = new ManualResetEvent(false);
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"Connecting to message queue url: {MessageQueue.MessageQueueUrl}");
+            ClientHelper.LogService.LogInfo("Client Console Running at: {0}", DateTime.Now);
+            ClientHelper.LogService.LogInfo("Connecting to message queue url: {0}", MessageQueue.MessageQueueUrl);
+
             using (var connection = MessageQueue.CreateConnection())
             {
-                var subscription = connection.SubscribeAsync(ProspectSignedUpEvent.MessageSubject);
-                subscription.MessageHandler += SaveProspect;
+                ClientHelper.LogService.LogInfo("Connected to message queue!");
+
+                var subscription = connection.SubscribeAsync(CustodianCreatedEvent.MessageSubject);
+                subscription.MessageHandler += SaveCustodian;
                 subscription.Start();
-                Console.WriteLine($"Listening on subject: {ProspectSignedUpEvent.MessageSubject}");
+                ClientHelper.LogService.LogInfo("Listening on subject: {0}", CustodianCreatedEvent.MessageSubject);
 
                 _ResetEvent.WaitOne();
                 connection.Close();
             }
         }
 
-        private static void SaveProspect(object sender, MsgHandlerEventArgs e)
+        private static void SaveCustodian(object sender, MsgHandlerEventArgs e)
         {
-            Console.WriteLine($"Received message, subject: {e.Message.Subject}");
-            var eventMessage = MessageHelper.FromData<ProspectSignedUpEvent>(e.Message.Data);
-            Console.WriteLine($"Saving new prospect, signed up at: {eventMessage.SignedUpAt}; event ID: {eventMessage.CorrelationId}");
+            ClientHelper.LogService.LogInfo("Received message, subject: {0}", e.Message.Subject);
+            var eventMessage = MessageHelper.FromData<CustodianCreatedEvent>(e.Message.Data);
+            ClientHelper.LogService.LogInfo("Saving new custodian, created at: {0} with event ID: {1}", eventMessage.CreatedAt, eventMessage.CorrelationId);
 
-            var prospect = eventMessage.Prospect;
-            using (var context = new ProductLaunchContext())
-            {
-                //reload child objects:
-                prospect.Country = context.Countries.Single(x => x.CountryCode == prospect.Country.CountryCode);
-                prospect.Role = context.Roles.Single(x => x.RoleCode == prospect.Role.RoleCode);
+            var prospect = eventMessage.Custodian;
+            ////using (var context = new ProductLaunchContext())
+            ////{
+            ////    //reload child objects:
+            ////    prospect.Country = context.Countries.Single(x => x.CountryCode == prospect.Country.CountryCode);
+            ////    prospect.CustodianType = context.Roles.Single(x => x.TypeCode == prospect.CustodianType.TypeCode);
 
-                context.Prospects.Add(prospect);
-                context.SaveChanges();
-            }
+            ////    context.Prospects.Add(prospect);
+            ////    context.SaveChanges();
+            ////}
 
-            Console.WriteLine($"Prospect saved. Prospect ID: {eventMessage.Prospect.ProspectId}; event ID: {eventMessage.CorrelationId}");
+            ClientHelper.LogService.LogInfo("STUBBED! NOT CURRENTLY SAVING.");
+
+            ClientHelper.LogService.LogInfo("Custodian saved. Custodian First Name: {0}, Last Name: {1}", eventMessage.Custodian.FirstName, eventMessage.Custodian.LastName);
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Sign Up" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="ProductLaunch.Web.SignUp" %>
+﻿<%@ Page Title="Create New Custodian" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateCustodian.aspx.cs" Inherits="ProductLaunch.Web.CreateCustodian" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>Sign me up!</h1>
+        <h1>Create a Custodian!</h1>
     </div>
 
     <div class="row">
@@ -33,10 +33,10 @@
         <asp:TextBox class="form-control" id="txtCompanyName" runat="server"/>
     </div>
     <div class="form-group">
-        <label for="ddlRole">Your Main Role</label>
-        <asp:DropDownList class="form-control" id="ddlRole" runat="server" />
+        <label for="ddlCustType">Person or Entity</label>
+        <asp:DropDownList class="form-control" id="ddlCustType" runat="server" />
     </div>
 
-    <asp:Button class="btn btn-default" runat="server" Text="Go!" ID="btnGo" OnClick="btnGo_Click" />
+    <asp:Button class="btn btn-default" runat="server" Text="Create!" ID="btnGo" OnClick="btnGo_Click" />
 
 </asp:Content>

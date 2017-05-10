@@ -17,7 +17,7 @@ namespace ProductLaunch.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ////Database.SetInitializer<ProductLaunchContext>(new StaticDataInitializer());
-            SignUp.PreloadStaticDataCache();
+            CreateCustodian.PreloadStaticDataCache();
         }
     }
 }
