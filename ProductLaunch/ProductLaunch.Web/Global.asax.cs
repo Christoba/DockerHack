@@ -16,7 +16,7 @@ namespace ProductLaunch.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer<ProductLaunchContext>(new StaticDataInitializer());
+            ////Database.SetInitializer<ProductLaunchContext>(new StaticDataInitializer());
             SignUp.PreloadStaticDataCache();
         }
     }

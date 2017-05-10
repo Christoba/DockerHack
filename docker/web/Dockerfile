@@ -10,4 +10,4 @@ RUN Remove-Website -Name 'Default Web Site'; \
 
 EXPOSE 80
 
-COPY ProductLaunch.Web /web-app
+COPY ProductLaunchWeb /web-app/

@@ -1,12 +1,12 @@
 $nuGetPath = ".\NuGet.exe"
 $msBuildPath = "C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"
 
-& $nuGetPath restore ..\ProductLaunch\ProductLaunch.sln
+& $nuGetPath restore ..\ProductLaunch\CustodianService.sln
 
 # publish website:
-& $msBuildPath ..\ProductLaunch\ProductLaunch.Web\ProductLaunch.Web.csproj /p:OutputPath=c:\git\hack\DockerHack\docker\web\ProductLaunchWeb 
-cp -r .\web\ProductLaunchWeb\_PublishedWebsites\ProductLaunch.Web .\web
 rm -r -force .\web\ProductLaunchWeb
+& $msBuildPath ..\ProductLaunch\ProductLaunch.Web\ProductLaunch.Web.csproj
+cp -r ..\ProductLaunch\ProductLaunch.Web .\web\ProductLaunchWeb
 
 # publish message handlers:
 & $msBuildPath ..\ProductLaunch\ProductLaunch.MessageHandlers.SaveProspect\ProductLaunch.MessageHandlers.SaveProspect.csproj /p:OutputPath=..\..\docker\save-prospect\SaveProspectHandler

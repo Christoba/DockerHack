@@ -301,4 +301,5 @@ paket.lock
 
 # build resources
 /docker/save-prospect/SaveProspectHandler/*
+/docker/web/ProductLaunchWeb/*
 /docker/NuGet.exe

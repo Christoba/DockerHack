@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductLaunch.Messaging", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageHandlers", "MessageHandlers", "{C7DDB104-252C-499C-A144-242DCC2CF946}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Logging", "kCura.Hack.Logging\kCura.Hack.Logging.csproj", "{FF74DA82-24F1-4DB6-97A1-59B91C41E462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF74DA82-24F1-4DB6-97A1-59B91C41E462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF74DA82-24F1-4DB6-97A1-59B91C41E462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF74DA82-24F1-4DB6-97A1-59B91C41E462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF74DA82-24F1-4DB6-97A1-59B91C41E462}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

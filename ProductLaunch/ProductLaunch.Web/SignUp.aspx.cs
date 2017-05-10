@@ -10,26 +10,65 @@ using System.Web.UI.WebControls;
 
 namespace ProductLaunch.Web
 {
+    using kCura.Hack.Logging;
+
     public partial class SignUp : Page
     {
         private static Dictionary<string, Country> _Countries;
         private static Dictionary<string, Role> _Roles;
 
+        private static ILogService logService = null;
+
+        private static ILogService LogService
+        {
+            get
+            {
+                if (logService == null)
+                {
+                    logService = LogServiceFactory.CreateLogService();
+                }
+
+                return logService;
+            }
+        }
+
         public static void PreloadStaticDataCache()
         {
+            LogService.LogInfo("Preloading data cache.");
+
             _Countries = new Dictionary<string, Country>();
             _Roles = new Dictionary<string, Role>();
-            using (var context = new ProductLaunchContext())
-            {
-                foreach (var country in context.Countries.OrderBy(x => x.CountryName))
-                {
-                    _Countries[country.CountryCode] = country;
-                }
-                foreach (var role in context.Roles.OrderBy(x => x.RoleName))
-                {
-                    _Roles[role.RoleCode] = role;
-                }
-            }
+            ////using (var context = new ProductLaunchContext())
+            ////{
+            ////    foreach (var country in context.Countries.OrderBy(x => x.CountryName))
+            ////    {
+            ////        _Countries[country.CountryCode] = country;
+            ////    }
+            ////    foreach (var role in context.Roles.OrderBy(x => x.RoleName))
+            ////    {
+            ////        _Roles[role.RoleCode] = role;
+            ////    }
+            ////}
+
+            _Countries = new Dictionary<string, Country>()
+                             {
+                                 {
+                                     "United States",
+                                     new Country()
+                                         {
+                                             CountryCode = "US",
+                                             CountryName = "United States"
+                                         }
+                                 }
+                             };
+
+            _Roles = new Dictionary<string, Role>()
+                         {
+                             {
+                                 "Developer",
+                                 new Role() { RoleCode = "Dev", RoleName = "Developer" }
+                             }
+                         };
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -68,15 +107,22 @@ namespace ProductLaunch.Web
                 Role = role
             };
 
-            var eventMessage = new ProspectSignedUpEvent
-            {
-                Prospect = prospect,
-                SignedUpAt = DateTime.UtcNow
-            };
-
-            MessageQueue.Publish(eventMessage);
+            this.SavePublish(prospect);
 
             Server.Transfer("ThankYou.aspx");
+        }
+
+        private void SavePublish(Prospect prospect)
+        {
+            var eventMessage = new ProspectSignedUpEvent
+                                   {
+                                       Prospect = prospect,
+                                       SignedUpAt = DateTime.UtcNow
+                                   };
+
+            LogService.LogInfo("Publishing new prospect {0}", prospect);
+
+            MessageQueue.Publish(eventMessage);
         }
     }
 }

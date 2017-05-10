@@ -2,13 +2,10 @@ version: '2.1'
 
 services:
   
-  sql-server:
-    image: microsoft/mssql-server-windows-express
+  raven-db: 
+    image: pizycki/ravendb
     ports:
-      - "1433:1433"
-    environment: 
-      - ACCEPT_EULA=Y
-      - sa_password=MSDNm4g4z!n3
+      - "8080:8080"
     networks:
       - app-net
 
@@ -24,7 +21,6 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - sql-server
       - message-queue
     networks:
       - app-net
@@ -32,7 +28,7 @@ services:
   save-prospect-handler:
     image: sixeyed/msdn-save-handler:v2
     depends_on:
-      - sql-server
+      - raven-db
       - message-queue
     networks:
       - app-net
