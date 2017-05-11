@@ -33,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NATS.Client, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NATS.Client.0.7.0\lib\net45\NATS.Client.DLL</HintPath>
       <Private>True</Private>
@@ -83,10 +79,6 @@
     <ProjectReference Include="..\ProductLaunch.Messaging\kCura.Hack.Messaging.csproj">
       <Project>{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}</Project>
       <Name>kCura.Hack.Messaging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProductLaunch.Model\ProductLaunch.Model.csproj">
-      <Project>{3afc4a48-5db6-48ff-a459-20ec21a2eb28}</Project>
-      <Name>ProductLaunch.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
