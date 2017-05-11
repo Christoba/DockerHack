@@ -5,11 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductLaunch.Web", "ProductLaunch.Web\ProductLaunch.Web.csproj", "{17A57CF4-A6C1-47C1-AA38-650DB6D87F8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Data", "ProductLaunch.Entities\kCura.Hack.Data.csproj", "{F1BBB80F-EB0C-41B6-A7A9-7994FB3FE5E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Data", "kCura.Hack.Data\kCura.Hack.Data.csproj", "{F1BBB80F-EB0C-41B6-A7A9-7994FB3FE5E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Client", "ProductLaunch.MessageHandlers.SaveProspect\kCura.Hack.Client.csproj", "{65089C80-27F1-4744-979B-4C5A33B0CFF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Client", "kCura.Hack.Client\kCura.Hack.Client.csproj", "{65089C80-27F1-4744-979B-4C5A33B0CFF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Messaging", "ProductLaunch.Messaging\kCura.Hack.Messaging.csproj", "{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Messaging", "kCura.Hack.Messaging\kCura.Hack.Messaging.csproj", "{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Logging", "kCura.Hack.Logging\kCura.Hack.Logging.csproj", "{FF74DA82-24F1-4DB6-97A1-59B91C41E462}"
 EndProject
