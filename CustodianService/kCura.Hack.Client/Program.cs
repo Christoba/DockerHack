@@ -18,7 +18,7 @@
         /// <summary>
         /// The document store endpoint
         /// </summary>
-        private const string DocumentStoreEndpoint = @"http://172.23.239.11:8080";
+        private const string DocumentStoreEndpoint = @"http://172.29.4.11:8080";
 
         /// <summary>
         /// The default database

@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\ProductLaunch.Entities\kCura.Hack.Data.csproj">
+    <ProjectReference Include="..\kCura.Hack.Data\kCura.Hack.Data.csproj">
       <Project>{F1BBB80F-EB0C-41B6-A7A9-7994FB3FE5E8}</Project>
       <Name>kCura.Hack.Data</Name>
     </ProjectReference>
