@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductLaunch.Web", "ProductLaunch.Web\ProductLaunch.Web.csproj", "{17A57CF4-A6C1-47C1-AA38-650DB6D87F8F}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Messaging", "kCura.Hack.Messaging\kCura.Hack.Messaging.csproj", "{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kCura.Hack.Logging", "kCura.Hack.Logging\kCura.Hack.Logging.csproj", "{FF74DA82-24F1-4DB6-97A1-59B91C41E462}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kCura.Hack.Web", "kCura.Hack.Web\kCura.Hack.Web.csproj", "{82BB9328-DF0E-4174-9659-5DD998B1D8AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{FF74DA82-24F1-4DB6-97A1-59B91C41E462}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF74DA82-24F1-4DB6-97A1-59B91C41E462}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF74DA82-24F1-4DB6-97A1-59B91C41E462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82BB9328-DF0E-4174-9659-5DD998B1D8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82BB9328-DF0E-4174-9659-5DD998B1D8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82BB9328-DF0E-4174-9659-5DD998B1D8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82BB9328-DF0E-4174-9659-5DD998B1D8AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

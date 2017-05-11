@@ -1,0 +1,16 @@
+﻿[
+    {
+        "id": 1,
+        "first name": "Ricky",
+        "last name": "Bobby",
+        "email": "ricky@bobby.com",
+        "custodian type": "Person"
+    },
+    {
+        "id": 2,
+        "first name": "Chris",
+        "last name": "Kratochvil",
+        "email": "ckratochvil@kcura.com",
+        "custodian type": "Entity"
+    }
+]

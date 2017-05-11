@@ -1,0 +1,32 @@
+{
+  "name": "aurelia-pal-browser",
+  "version": "1.2.1",
+  "description": "The browser-specific implementation of Aurelia's platform abstraction layer.",
+  "keywords": [
+    "aurelia",
+    "pal"
+  ],
+  "homepage": "http://aurelia.io",
+  "main": "dist/commonjs/aurelia-pal-browser.js",
+  "moduleType": "node",
+  "license": "MIT",
+  "authors": [
+    "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aurelia/pal-browser"
+  },
+  "dependencies": {
+    "aurelia-pal": "^1.1.0"
+  },
+  "_release": "1.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.1",
+    "commit": "f151cf1bd6fac00ae413387a264ae8aa0fbd23d3"
+  },
+  "_source": "https://github.com/aurelia/pal-browser.git",
+  "_target": "^1.0.0",
+  "_originalSource": "aurelia-pal-browser"
+}

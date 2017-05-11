@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\lib\aurelia-binding\**" />
+    <Compile Remove="wwwroot\lib\aurelia-bootstrapper\**" />
+    <Compile Remove="wwwroot\lib\aurelia-dependency-injection\**" />
+    <Compile Remove="wwwroot\lib\aurelia-event-aggregator\**" />
+    <Compile Remove="wwwroot\lib\aurelia-framework\**" />
+    <Compile Remove="wwwroot\lib\aurelia-history-browser\**" />
+    <Compile Remove="wwwroot\lib\aurelia-history\**" />
+    <Compile Remove="wwwroot\lib\aurelia-http-client\**" />
+    <Compile Remove="wwwroot\lib\aurelia-loader-default\**" />
+    <Compile Remove="wwwroot\lib\aurelia-loader\**" />
+    <Compile Remove="wwwroot\lib\aurelia-logging-console\**" />
+    <Compile Remove="wwwroot\lib\aurelia-logging\**" />
+    <Compile Remove="wwwroot\lib\aurelia-metadata\**" />
+    <Compile Remove="wwwroot\lib\aurelia-pal-browser\**" />
+    <Compile Remove="wwwroot\lib\aurelia-pal\**" />
+    <Compile Remove="wwwroot\lib\aurelia-path\**" />
+    <Compile Remove="wwwroot\lib\aurelia-polyfills\**" />
+    <Compile Remove="wwwroot\lib\aurelia-route-recognizer\**" />
+    <Compile Remove="wwwroot\lib\aurelia-router\**" />
+    <Compile Remove="wwwroot\lib\aurelia-task-queue\**" />
+    <Compile Remove="wwwroot\lib\aurelia-templating-binding\**" />
+    <Compile Remove="wwwroot\lib\aurelia-templating-resources\**" />
+    <Compile Remove="wwwroot\lib\aurelia-templating-router\**" />
+    <Compile Remove="wwwroot\lib\aurelia-templating\**" />
+    <Content Remove="wwwroot\lib\aurelia-binding\**" />
+    <Content Remove="wwwroot\lib\aurelia-bootstrapper\**" />
+    <Content Remove="wwwroot\lib\aurelia-dependency-injection\**" />
+    <Content Remove="wwwroot\lib\aurelia-event-aggregator\**" />
+    <Content Remove="wwwroot\lib\aurelia-framework\**" />
+    <Content Remove="wwwroot\lib\aurelia-history-browser\**" />
+    <Content Remove="wwwroot\lib\aurelia-history\**" />
+    <Content Remove="wwwroot\lib\aurelia-http-client\**" />
+    <Content Remove="wwwroot\lib\aurelia-loader-default\**" />
+    <Content Remove="wwwroot\lib\aurelia-loader\**" />
+    <Content Remove="wwwroot\lib\aurelia-logging-console\**" />
+    <Content Remove="wwwroot\lib\aurelia-logging\**" />
+    <Content Remove="wwwroot\lib\aurelia-metadata\**" />
+    <Content Remove="wwwroot\lib\aurelia-pal-browser\**" />
+    <Content Remove="wwwroot\lib\aurelia-pal\**" />
+    <Content Remove="wwwroot\lib\aurelia-path\**" />
+    <Content Remove="wwwroot\lib\aurelia-polyfills\**" />
+    <Content Remove="wwwroot\lib\aurelia-route-recognizer\**" />
+    <Content Remove="wwwroot\lib\aurelia-router\**" />
+    <Content Remove="wwwroot\lib\aurelia-task-queue\**" />
+    <Content Remove="wwwroot\lib\aurelia-templating-binding\**" />
+    <Content Remove="wwwroot\lib\aurelia-templating-resources\**" />
+    <Content Remove="wwwroot\lib\aurelia-templating-router\**" />
+    <Content Remove="wwwroot\lib\aurelia-templating\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-binding\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-bootstrapper\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-dependency-injection\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-event-aggregator\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-framework\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-history-browser\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-history\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-http-client\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-loader-default\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-loader\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-logging-console\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-logging\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-metadata\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-pal-browser\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-pal\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-path\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-polyfills\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-route-recognizer\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-router\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-task-queue\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-templating-binding\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-templating-resources\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-templating-router\**" />
+    <EmbeddedResource Remove="wwwroot\lib\aurelia-templating\**" />
+    <None Remove="wwwroot\lib\aurelia-binding\**" />
+    <None Remove="wwwroot\lib\aurelia-bootstrapper\**" />
+    <None Remove="wwwroot\lib\aurelia-dependency-injection\**" />
+    <None Remove="wwwroot\lib\aurelia-event-aggregator\**" />
+    <None Remove="wwwroot\lib\aurelia-framework\**" />
+    <None Remove="wwwroot\lib\aurelia-history-browser\**" />
+    <None Remove="wwwroot\lib\aurelia-history\**" />
+    <None Remove="wwwroot\lib\aurelia-http-client\**" />
+    <None Remove="wwwroot\lib\aurelia-loader-default\**" />
+    <None Remove="wwwroot\lib\aurelia-loader\**" />
+    <None Remove="wwwroot\lib\aurelia-logging-console\**" />
+    <None Remove="wwwroot\lib\aurelia-logging\**" />
+    <None Remove="wwwroot\lib\aurelia-metadata\**" />
+    <None Remove="wwwroot\lib\aurelia-pal-browser\**" />
+    <None Remove="wwwroot\lib\aurelia-pal\**" />
+    <None Remove="wwwroot\lib\aurelia-path\**" />
+    <None Remove="wwwroot\lib\aurelia-polyfills\**" />
+    <None Remove="wwwroot\lib\aurelia-route-recognizer\**" />
+    <None Remove="wwwroot\lib\aurelia-router\**" />
+    <None Remove="wwwroot\lib\aurelia-task-queue\**" />
+    <None Remove="wwwroot\lib\aurelia-templating-binding\**" />
+    <None Remove="wwwroot\lib\aurelia-templating-resources\**" />
+    <None Remove="wwwroot\lib\aurelia-templating-router\**" />
+    <None Remove="wwwroot\lib\aurelia-templating\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\app.js" />
+    <Content Include="wwwroot\custodiandata.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\custodians.json" />
+    <Content Include="wwwroot\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
