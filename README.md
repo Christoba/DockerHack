@@ -3,6 +3,9 @@
 
 The goal of the project is to create a Custodian Microservice that can save a new custodian using distributed windows docker containers. The project includes a website, the RavenDB document store, the NATS message queue, a console application and SEQ logging via Serilog.
 
+The project is built upon code provided in the following article: https://msdn.microsoft.com/en-us/magazine/mt797650.aspx
+Changes include the introduction of RavenDB and SEQ.
+
 ## Getting Started
 
 ### Installation
