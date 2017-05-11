@@ -1,8 +1,8 @@
-﻿using ProductLaunch.Entities;
-using System;
-
-namespace ProductLaunch.Messaging.Messages.Events
+﻿namespace kCura.Hack.Messaging
 {
+    using System;
+    using kCura.Hack.Data;
+
     public class CustodianCreatedEvent : Message
     {
         public override string Subject { get { return MessageSubject; } }

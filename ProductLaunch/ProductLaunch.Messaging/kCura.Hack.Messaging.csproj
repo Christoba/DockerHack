@@ -7,8 +7,8 @@
     <ProjectGuid>{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProductLaunch.Messaging</RootNamespace>
-    <AssemblyName>ProductLaunch.Messaging</AssemblyName>
+    <RootNamespace>kCura.Hack.Messaging</RootNamespace>
+    <AssemblyName>kCura.Hack.Messaging</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,9 +60,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\ProductLaunch.Entities\ProductLaunch.Entities.csproj">
+    <ProjectReference Include="..\ProductLaunch.Entities\kCura.Hack.Data.csproj">
       <Project>{F1BBB80F-EB0C-41B6-A7A9-7994FB3FE5E8}</Project>
-      <Name>ProductLaunch.Entities</Name>
+      <Name>kCura.Hack.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProductLaunch.Messaging.Messages
+namespace kCura.Hack.Messaging
 {
     public abstract class Message
     {

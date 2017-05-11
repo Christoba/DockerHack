@@ -41,7 +41,16 @@
       <HintPath>..\packages\NATS.Client.0.7.0\lib\net45\NATS.Client.DLL</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Raven.Abstractions, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\packages\RavenDB.Client.3.5.3\lib\net45\Raven.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\packages\RavenDB.Client.3.5.3\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -67,13 +76,13 @@
       <Project>{ff74da82-24f1-4db6-97a1-59b91c41e462}</Project>
       <Name>kCura.Hack.Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProductLaunch.Entities\ProductLaunch.Entities.csproj">
+    <ProjectReference Include="..\ProductLaunch.Entities\kCura.Hack.Data.csproj">
       <Project>{f1bbb80f-eb0c-41b6-a7a9-7994fb3fe5e8}</Project>
-      <Name>ProductLaunch.Entities</Name>
+      <Name>kCura.Hack.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProductLaunch.Messaging\ProductLaunch.Messaging.csproj">
+    <ProjectReference Include="..\ProductLaunch.Messaging\kCura.Hack.Messaging.csproj">
       <Project>{E02EFF91-8C52-4DCE-8279-3FD1EE0659EF}</Project>
-      <Name>ProductLaunch.Messaging</Name>
+      <Name>kCura.Hack.Messaging</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProductLaunch.Model\ProductLaunch.Model.csproj">
       <Project>{3afc4a48-5db6-48ff-a459-20ec21a2eb28}</Project>

@@ -1,8 +1,7 @@
 ﻿using Newtonsoft.Json;
-using ProductLaunch.Messaging.Messages;
 using System.Text;
 
-namespace ProductLaunch.Messaging
+namespace kCura.Hack.Messaging
 {
     public class MessageHelper
     {

@@ -1,7 +1,6 @@
 ﻿using NATS.Client;
-using ProductLaunch.Messaging.Messages;
 
-namespace ProductLaunch.Messaging
+namespace kCura.Hack.Messaging
 {
     public static class MessageQueue
     {

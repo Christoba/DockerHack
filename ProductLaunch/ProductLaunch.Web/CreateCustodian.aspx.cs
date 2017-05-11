@@ -1,6 +1,5 @@
-﻿using ProductLaunch.Entities;
-using ProductLaunch.Messaging;
-using ProductLaunch.Messaging.Messages.Events;
+﻿using kCura.Hack.Data;
+using kCura.Hack.Messaging;
 
 using System;
 using System.Collections.Generic;

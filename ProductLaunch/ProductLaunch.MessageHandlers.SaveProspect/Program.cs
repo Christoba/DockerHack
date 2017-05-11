@@ -1,37 +1,73 @@
-﻿
-
-namespace kCura.Hack.Client
+﻿namespace kCura.Hack.Client
 {
     using System;
     using System.Threading;
 
-    using NATS.Client;
-    using ProductLaunch.Messaging;
-    using ProductLaunch.Messaging.Messages.Events;
+    using kCura.Hack.Data;
 
+    using NATS.Client;
+    using kCura.Hack.Messaging;
+
+    using Raven.Client;
+
+    /// <summary>
+    /// The Client Program
+    /// </summary>
     class Program
     {
-        private static ManualResetEvent _ResetEvent = new ManualResetEvent(false);
+        /// <summary>
+        /// The document store endpoint
+        /// </summary>
+        private const string DocumentStoreEndpoint = @"http://172.23.239.11:8080";
 
+        /// <summary>
+        /// The default database
+        /// </summary>
+        private const string DefaultDatabase = @"CustodianStore";
+
+        /// <summary>
+        /// The reset event
+        /// </summary>
+        private static ManualResetEvent resetEvent = new ManualResetEvent(false);
+
+        /// <summary>
+        /// The document store service
+        /// </summary>
+        private static IDocumentStoreService documentStoreService;
+
+        /// <summary>
+        /// The entry point.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
             ClientHelper.LogService.LogInfo("Client Console Running at: {0}", DateTime.Now);
             ClientHelper.LogService.LogInfo("Connecting to message queue url: {0}", MessageQueue.MessageQueueUrl);
 
             using (var connection = MessageQueue.CreateConnection())
+            using (documentStoreService = new DocumentStoreService(DocumentStoreEndpoint, DefaultDatabase))
             {
                 ClientHelper.LogService.LogInfo("Connected to message queue!");
+
+                ClientHelper.LogService.LogInfo("Creating document store...");
+                documentStoreService.CreateStore();
+                ClientHelper.LogService.LogInfo("Document store created at {0} with database {1}", DocumentStoreEndpoint, DefaultDatabase);
 
                 var subscription = connection.SubscribeAsync(CustodianCreatedEvent.MessageSubject);
                 subscription.MessageHandler += SaveCustodian;
                 subscription.Start();
                 ClientHelper.LogService.LogInfo("Listening on subject: {0}", CustodianCreatedEvent.MessageSubject);
 
-                _ResetEvent.WaitOne();
+                resetEvent.WaitOne();
                 connection.Close();
             }
         }
 
+        /// <summary>
+        /// Saves the custodian.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MsgHandlerEventArgs"/> instance containing the event data.</param>
         private static void SaveCustodian(object sender, MsgHandlerEventArgs e)
         {
             ClientHelper.LogService.LogInfo("Received message, subject: {0}", e.Message.Subject);
@@ -39,17 +75,7 @@ namespace kCura.Hack.Client
             ClientHelper.LogService.LogInfo("Saving new custodian, created at: {0} with event ID: {1}", eventMessage.CreatedAt, eventMessage.CorrelationId);
 
             var prospect = eventMessage.Custodian;
-            ////using (var context = new ProductLaunchContext())
-            ////{
-            ////    //reload child objects:
-            ////    prospect.Country = context.Countries.Single(x => x.CountryCode == prospect.Country.CountryCode);
-            ////    prospect.CustodianType = context.Roles.Single(x => x.TypeCode == prospect.CustodianType.TypeCode);
-
-            ////    context.Prospects.Add(prospect);
-            ////    context.SaveChanges();
-            ////}
-
-            ClientHelper.LogService.LogInfo("STUBBED! NOT CURRENTLY SAVING.");
+            documentStoreService.StoreEntity(prospect);
 
             ClientHelper.LogService.LogInfo("Custodian saved. Custodian First Name: {0}, Last Name: {1}", eventMessage.Custodian.FirstName, eventMessage.Custodian.LastName);
         }

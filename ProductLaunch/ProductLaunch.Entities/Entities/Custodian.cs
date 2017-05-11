@@ -1,4 +1,4 @@
-﻿namespace ProductLaunch.Entities
+﻿namespace kCura.Hack.Data
 {
     using System.Globalization;
 

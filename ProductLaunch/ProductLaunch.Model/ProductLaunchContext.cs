@@ -1,4 +1,4 @@
-﻿using ProductLaunch.Entities;
+﻿using kCura.Hack.Data;
 using System.Data.Entity;
 
 namespace ProductLaunch.Model
