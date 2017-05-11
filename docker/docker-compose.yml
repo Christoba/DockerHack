@@ -4,42 +4,46 @@ services:
   
   raven-db: 
     image: pizycki/ravendb
+    container_name: container-ravendb
     ports:
       - "8080:8080"
     networks:
-      #- app-net
-      app-net:
-        ipv4_address: 172.29.4.11
+      - app-net
+      #app-net:
+      #  ipv4_address: 172.29.4.11
 
   message-queue:
     image: nats:windowsservercore
+    container_name: container-messagequeue
     ports:
       - "4222:4222"
     networks:
-      #- app-net
-      app-net:
-        ipv4_address: 172.29.4.12
+      - app-net
+      #app-net:
+      #  ipv4_address: 172.29.4.12
 
   product-launch-web:
     image: sixeyed/msdn-web-app:v2
+    container_name: container-web
     ports:
       - "80:80"
     depends_on:
       - message-queue
     networks:
-      #- app-net
-      app-net:
-        ipv4_address: 172.29.4.13
+      - app-net
+      #app-net:
+      #  ipv4_address: 172.29.4.13
 
   save-prospect-handler:
     image: sixeyed/msdn-save-handler:v2
+    container_name: container-client
     depends_on:
       - raven-db
       - message-queue
     networks:
-      #- app-net
-      app-net:
-        ipv4_address: 172.29.4.14
+      - app-net
+      #app-net:
+      #  ipv4_address: 172.29.4.14
 
 networks:
   app-net:

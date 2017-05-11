@@ -22,9 +22,9 @@ namespace kCura.Hack.Logging
         /// The SEQ endpoint
         /// </summary>
         /// <remarks>
-        /// The endpoint is the container host.
+        /// The endpoint is the container host (this will need to change based on the environment).
         /// </remarks>
-        private const string SeqEndpoint = "http://172.23.224.1:5341";
+        private const string SeqEndpoint = "http://172.29.0.1:5341";        
 
         /// <summary>
         /// Creates the log file name.
