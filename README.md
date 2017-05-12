@@ -33,8 +33,13 @@ docker-compose up -d
 
 ```
 
-The following containers will be started. These can be seen via "docker ps"
+The following containers will be started. These can be seen via
 
+```docker ps
+
+docker ps
+
+```
 1. container-ravendb: Runs a ravendb document store instance
 2. container-messagequeue: Runs the NATS message queue
 3. container-client: Runs a console application subscribed to the message queue
@@ -47,5 +52,25 @@ Container services are logging to a SEQ (https://getseq.net/) endpoint that is c
 ```seq endpoint
 
 private const string SeqEndpoint = "http://IPADDRESS:5341";
+
+```
+
+### Create Custodian
+
+Once containers are running, get the ipaddress of the web container using the following and navigate to http://WEBCONTAINERIP/CreateCustodian
+
+```web container
+
+docker inspect container-web
+
+```
+
+### RavenDB
+
+You can inspect ravendb by hitting http://RAVENCONTAINERIP:8080
+
+```web container
+
+docker inspect container-ravendb
 
 ```
